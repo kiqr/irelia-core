@@ -14,7 +14,6 @@ gem "debug", platforms: %i[ mri windows ]
 
 gem "rails", ">= 7.1"
 gem "devise", "~> 4.9"
-gem "teamable", git: "git@github.com:kiqr/teamable.git", branch: "main"
 
 gem "rubocop"
 gem "rubocop-rails"
