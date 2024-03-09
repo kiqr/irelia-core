@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
-require "irelia/version"
-require "irelia/engine"
-
 require "dry-configurable"
+require "dry-initializer"
+require "importmap-rails"
+require "loaf"
+require "meta-tags"
+require "view_component-contrib"
+require "simple_form"
 
 module Irelia
   extend Dry::Configurable
@@ -19,3 +22,6 @@ module Irelia
   # with default "from" parameter.
   setting :default_from_email, default: "please-change-me-at-config-initializers-irelia@example.com"
 end
+
+require "irelia/version"
+require "irelia/engine"

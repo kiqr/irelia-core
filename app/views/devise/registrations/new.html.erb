@@ -1,0 +1,21 @@
+<% title "Create a new account" %>
+<% content_for :header do %>
+  <h1 class="font-bold font-headings text-neutral-600 dark:text-neutral-100 text-2xl">Create your <strong class="text-primary-600">Irelia</strong> account</h1>
+  <p class="text-neutral-400">Enter your email address and a secure password.</p>
+<% end %>
+
+<main class="flex flex-col gap-4 w-full max-w-2xl">
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.input :email, placeholder: "Enter a valid email address", required: true, autofocus: true, input_html: { autocomplete: "email" }%>
+    
+    <div class="flex justify-between items-start gap-x-4">
+      <%= f.input :password, placeholder: "Create a secure password", required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password" } %>
+      <%= f.input :password_confirmation, placeholder: "Confirm your password", required: true, input_html: { autocomplete: "new-password" } %>
+    </div>
+
+    <div class="mt-4 flex justify-between items-center">
+      <%= f.button :submit, "Create your account" %>
+      <p class="dark:text-neutral-200">Already have an account? <%= link_to "Sign in!", new_user_session_path, class: "font-bold transition text-primary-600" %>
+    </div>
+  <% end %>
+</main>

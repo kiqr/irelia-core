@@ -1,0 +1,36 @@
+<div data-controller="dropdown" class="relative block text-sm min-w-[20px]">
+  <button class="flex w-full items-center text-left gap-x-4 cursor-pointer" data-action="dropdown#toggle click@window->dropdown#hide">
+    <img class="w-9 h-9 rounded" src="https://picsum.photos/50">
+    <div class="flex flex-col pr-4 gap-y-0.5">
+      <strong class="text-primary-600"><%= current_account.name %></strong>
+      <% if current_account.personal_account? %>
+        <span class="flex text-neutral-500 dark:text-neutral-300 items-center gap-x-1 text-xs">
+          <i class="fas fa-user"></i>
+          Personal account
+        </span>
+      <% else %>
+        <span class="flex text-neutral-500 dark:text-neutral-300 items-center gap-x-1 text-xs">
+          <i class="fas fa-users"></i>
+          Team account
+        </span>
+      <% end %>
+    </div>
+    <i class="fa-solid fa-caret-down mr-2 ml-auto"></i>
+  </button>
+  <div
+    class="hidden w-full transition z-50 text-xs bg-white dark:bg-zinc-800 divide-y absolute mt-4 right-0 border dark:border-zinc-700 dark:divide-zinc-700 dark:text-neutral-200 border-t-0 rounded-b whitespace-nowrap"
+    data-dropdown-target="menu"
+    data-transition-enter-from="opacity-0 scale-95"
+    data-transition-enter-to="opacity-100 scale-100"
+    data-transition-leave-from="opacity-100 scale-100"
+    data-transition-leave-to="opacity-0 scale-95">
+
+    <% User.find(current_user.id).accounts.each do |account| %>
+      <%= button_to switch_account_path(account), class: 'flex w-full p-3 px-4 gap-x-4 items-center hover:bg-neutral-100 hover:text-neutral-900 transition', method: :patch do %>
+        <i class="fas w-4 text-center <%= account.personal_account? ? "fa-user" : "fa-users" %>"></i> <%= account.name %>
+      <% end %>
+    <% end %>
+
+    <%= link_to 'Create a new team account' , new_account_path, class: 'flex w-full p-3 px-4 gap-x-4 items-center hover:bg-neutral-100 hover:text-neutral-900 transition', method: :delete %>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= render "shared/head" %>
+  </head>
+  <body class="h-screen relative flex justify-center items-center antialiased bg-neutral-50 text-neutral-700 dark:bg-dark-800 dark:text-neutral-100">
+    <div class="fixed top-4 right-4">
+      <%= render(Navbar::DarkModeSwitcher::Component.new) %>
+    </div>
+    
+    <% flash.each do |key, value| %>
+      <%= content_tag :div, value, class: "flash #{key} fixed top-0 left-0 right-0 bg-white py-2 px-4 inline-block text-center w-full shadow" %>
+    <% end %>
+
+    <section class="flex flex-col gap-8 items-center justify-center w-full">
+      <header class="flex flex-col items-center gap-y-2 text-center max-w-lg">
+        <%= yield :header %>
+      </header>
+
+      <%= yield %>
+    </section>
+  </body>
+</html>

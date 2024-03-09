@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= render "shared/head" %>
+  </head>
+  <body class="h-screen relative bg-neutral-50 text-neutral-700 dark:bg-dark-800 dark:text-neutral-100">
+    <%= render "shared/navbar" %>
+
+    <% flash.each do |key, value| %>
+      <%= content_tag :div, value, class: "flash #{key} fixed top-0 left-0 right-0 bg-white py-2 px-4 inline-block text-center w-full shadow" %>
+    <% end %>
+
+    <div class="h-screen -top-[60px] relative flex justify-center items-center antialiased">
+      <section class="flex flex-1 flex-col">
+        <div class="flex-1 flex items-center justify-center px-8">
+          <section class="flex flex-col gap-8 items-center justify-center w-full max-w-xl">
+            <header class="flex flex-col items-center">
+              <div class="flex flex-col gap-y-2 text-center">
+                <%= yield :header %>
+              </div>
+            </header>
+
+            <main class="flex flex-col gap-4 w-full">
+              <%= yield %>
+            </main>
+          </section>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

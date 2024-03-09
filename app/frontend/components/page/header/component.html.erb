@@ -1,0 +1,12 @@
+<header class="flex mb-8 border-b-2 dark:border-b-dark-700 pb-6">
+  <div class="flex flex-1 flex-col gap-y-1">
+    <h1 class="text-lg font-bold uppercase"><%= title %></h1>
+    <% if subtitle.present? %>
+      <p class="text-neutral-400"><%= subtitle %></p>
+    <% end %>
+  </div>
+
+  <div class="flex items-center justify-center gap-x-3">
+    <%= content %>
+  </div>
+</header>
