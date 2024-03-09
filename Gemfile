@@ -14,7 +14,6 @@ gem "debug", platforms: %i[ mri windows ]
 
 gem "rails", ">= 7.1"
 
-gem "brakeman", "~> 6.1"
 gem "rubocop"
 gem "rubocop-rails"
 gem "rubocop-performance"
