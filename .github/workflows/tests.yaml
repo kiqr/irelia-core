@@ -23,7 +23,7 @@ jobs:
           bundler-cache: true
 
       - name: Brakeman
-        run: bundle exec brakeman -A
+        run: bundle exec brakeman test/dummy -A
 
   lint:
     timeout-minutes: 10
