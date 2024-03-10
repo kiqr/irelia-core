@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+VERSION=$1
+
+# Exit if version is empty.
+if [ -z "$VERSION" ]; then
+  echo "Version is required"
+  exit 1
+fi
+
+printf "module Irelia\n  VERSION = \"$VERSION\"\nend\n" > ./lib/irelia/version.rb
+bundle
+git add lib/irelia/version.rb
+git commit -m "Bump version for $VERSION"
+git push
+git tag v$VERSION
+git push --tags
+gem build irelia.gemspec
+gem push "irelia-$VERSION.gem" --host https://rubygems.org
+rm "irelia-$VERSION.gem"
