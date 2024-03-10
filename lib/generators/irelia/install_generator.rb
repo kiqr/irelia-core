@@ -13,7 +13,14 @@ module Irelia
     desc "Creates the Irelia initializer."
 
     def copy_initializers
-      template "irelia.rb", "config/initializers/irelia.rb"
+      copy_file "../../../config/initializers/devise.rb", "config/initializers/devise.rb"
+      copy_file "../../../config/initializers/irelia.rb", "config/initializers/irelia.rb"
+    end
+
+    desc "Copy the tailwind.config.js file to the config directory."
+
+    def copy_tailwind_config
+      template "tailwind.config.js", "config/tailwind.config.js"
     end
   end
 end
