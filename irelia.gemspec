@@ -20,6 +20,7 @@ Gem::Specification.new do |spec|
     Dir["{app,config,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
   end
 
+  spec.add_dependency "devise", "~> 4.9"
   spec.add_dependency "dry-configurable", "~> 1.1"
   spec.add_dependency "dry-initializer", "~> 3.1"
   spec.add_dependency "importmap-rails", "~> 1.1.6"

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "devise"
 require "dry-configurable"
 require "dry-initializer"
 require "importmap-rails"
