@@ -13,6 +13,10 @@ require "view_component-contrib"
 module Irelia
   extend Dry::Configurable
 
+  module Controllers
+    autoload :Application, "irelia/controllers/application"
+  end
+
   # ==> Application name
   # The name of the application. This will be displayed in the meta title
   # and on various places in the application.
