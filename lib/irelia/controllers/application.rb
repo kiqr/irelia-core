@@ -18,11 +18,6 @@ module Irelia
         dashboard_path
       end
 
-      # Redirect to the sign in page after signing out.
-      def after_sign_out_path_for(resource_or_scope)
-        new_user_session_path
-      end
-
       def after_account_switched_path(account = nil)
         return dashboard_path(account_id: nil) if defined?(current_user) && current_user&.personal_account == account
 
