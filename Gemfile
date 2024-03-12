@@ -14,6 +14,7 @@ gem "debug", platforms: %i[mri windows]
 
 gem "rails", ">= 7.1"
 gem "devise", "~> 4.9"
+gem "standard"
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
@@ -21,5 +22,3 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-
-gem "standardrb", "~> 1.0"
