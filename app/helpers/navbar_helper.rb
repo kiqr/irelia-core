@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
 module NavbarHelper
-  def navbar(&block)
-    render(Navbar::Container::Component.new, &block)
+  def navbar(&)
+    render(Navbar::Container::Component.new, &)
   end
 
-  def navbar_items(&block)
-    render(Navbar::MenuItems::Component.new, &block)
+  def navbar_items(&)
+    render(Navbar::MenuItems::Component.new, &)
   end
 
-  def navbar_right(&block)
-    render(Navbar::RightSection::Component.new, &block)
+  def navbar_right(&)
+    render(Navbar::RightSection::Component.new, &)
   end
 
   def navigation_item(text, target, options = {})
@@ -21,7 +21,6 @@ module NavbarHelper
   end
 
   def navbar_button(text, target, options = {})
-    active = options[:active] || request.path == target
     icon = options[:icon] || nil
     method = options[:method] || :get
     custom_class = options[:class] || nil

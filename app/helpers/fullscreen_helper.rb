@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 module FullscreenHelper
-  def fullscreen(&block)
-    render(Page::FullScreen::Component.new, &block)
+  def fullscreen(&)
+    render(Page::FullScreen::Component.new, &)
   end
 
-  def fullscreen_form_container(title:, description: nil, &block)
-    render(Page::FullScreen::FormContainer::Component.new(title:, description:), &block)
+  def fullscreen_form_container(title:, description: nil, &)
+    render(Page::FullScreen::FormContainer::Component.new(title:, description:), &)
   end
 end

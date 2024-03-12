@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module PageHelper
-  def container(&block)
-    render(Page::Container::Component.new, &block)
+  def container(&)
+    render(Page::Container::Component.new, &)
   end
 
   def page_header(**arguments)

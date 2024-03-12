@@ -10,15 +10,10 @@ gem "puma"
 gem "sqlite3"
 gem "sprockets-rails"
 
-gem "debug", platforms: %i[ mri windows ]
+gem "debug", platforms: %i[mri windows]
 
 gem "rails", ">= 7.1"
 gem "devise", "~> 4.9"
-
-gem "rubocop"
-gem "rubocop-rails"
-gem "rubocop-performance"
-gem "rubocop-packaging"
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
@@ -26,3 +21,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "standardrb", "~> 1.0"

@@ -20,12 +20,12 @@ SimpleForm.setup do |config|
       b.optional :min_max
       b.optional :readonly
 
-      b.use :hint, wrap_with: { tag: "span", class: "text-xs absolute mx-left absolute right-0 mr-4 text-neutral-400 italic" }
+      b.use :hint, wrap_with: {tag: "span", class: "text-xs absolute mx-left absolute right-0 mr-4 text-neutral-400 italic"}
       b.use :label, class: "text-left text-neutral-700 font-bold text-sm uppercase whitespace-nowrap"
       b.use :input, class: "text-left appearance-none p-0 m-0 w-full border-0 focus:ring-0 focus:outline-none bg-white text-neutral-600 focus:text-primary-600 placeholder-neutral-400", error_class: "is-invalid"
     end
 
-    w.use :error, wrap_with: { tag: "div", class: "text-xs text-rose-500 italic pt-1.5" }
+    w.use :error, wrap_with: {tag: "div", class: "text-xs text-rose-500 italic pt-1.5"}
   end
 
   config.wrappers :inline_checkbox, tag: "div", class: "flex items-center gap-x-4 w-full", error_class: "error" do |b|
@@ -79,7 +79,7 @@ SimpleForm.setup do |config|
   # config.item_wrapper_class = nil
 
   # How the label text should be generated altogether with the required text.
-  config.label_text = lambda { |label, required, explicit_label| "#{label}" }
+  config.label_text = lambda { |label, required, explicit_label| label.to_s }
 
   # You can define the class to use on all labels. Default is nil.
   # config.label_class = nil
