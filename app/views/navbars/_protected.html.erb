@@ -1,0 +1,23 @@
+<%= navbar do %>
+  <%= render "shared/navbar_logo" %>
+
+  <%= navbar_separator %>
+
+  <% if account_selected? %>
+    <%= navbar_items do %>
+      <%= navigation_item "Dashboard", dashboard_path %>
+    <% end %>
+  <% end %>
+
+  <%= navbar_right do %>
+    <% if account_selected? %>
+      <%= navbar_button(nil, "#", { icon: "fa fa-bell" }) %>
+      <%= navbar_separator %>
+      <%= render(Navbar::SelectAccount::Component.new(current_user:, current_account:)) %>
+      <%= navbar_separator %>
+      <%= navbar_button(nil, "#", { icon: "fa fa-gear" }) %>
+    <% end %>
+    <%= render(Navbar::DarkModeSwitcher::Component.new) %>
+    <%= navbar_button(nil, destroy_user_session_path, { method: :delete, icon: "fa fa-right-from-bracket" }) %>
+  <% end %>
+<% end %>

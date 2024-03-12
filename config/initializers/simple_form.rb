@@ -21,8 +21,8 @@ SimpleForm.setup do |config|
       b.optional :readonly
 
       b.use :hint, wrap_with: { tag: "span", class: "text-xs absolute mx-left absolute right-0 mr-4 text-neutral-400 italic" }
-      b.use :label, class: "text-neutral-700 font-bold text-sm uppercase whitespace-nowrap"
-      b.use :input, class: "appearance-none p-0 m-0 w-full border-0 focus:ring-0 focus:outline-none bg-white text-neutral-600 focus:text-primary-600 placeholder-neutral-400", error_class: "is-invalid"
+      b.use :label, class: "text-left text-neutral-700 font-bold text-sm uppercase whitespace-nowrap"
+      b.use :input, class: "text-left appearance-none p-0 m-0 w-full border-0 focus:ring-0 focus:outline-none bg-white text-neutral-600 focus:text-primary-600 placeholder-neutral-400", error_class: "is-invalid"
     end
 
     w.use :error, wrap_with: { tag: "div", class: "text-xs text-rose-500 italic pt-1.5" }
@@ -30,8 +30,8 @@ SimpleForm.setup do |config|
 
   config.wrappers :inline_checkbox, tag: "div", class: "flex items-center gap-x-4 w-full", error_class: "error" do |b|
     b.use :html5
-    b.use :input, class: "appearance-none focus:ring-0 focus:outline-none w-5 h-5 accent-neutral-700 rounded border-neutral-200 shadow"
-    b.use :label, class: "py-2 w-full text-sm cursor-pointer"
+    b.use :input, class: "text-left appearance-none focus:ring-0 focus:outline-none w-5 h-5 accent-neutral-700 rounded border-neutral-200 shadow"
+    b.use :label, class: "text-left py-2 w-full text-sm cursor-pointer"
 
     b.use :error
   end

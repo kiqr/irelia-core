@@ -1,30 +1,7 @@
-<%= navbar do %>
-  <%= render "shared/navbar_logo" %>
-
-  <%= navbar_separator %>
-
-  <% if account_selected? %>
-    <%= navbar_items do %>
-      <%= navigation_item "Dashboard", root_path %>
-      <%= navigation_item "Reports", "#" %>
-    <% end %>
-  <% end %>
-
-  <% unless account_selected? %>
-    <%= navbar_items do %>
-      <%= navigation_item "Onboarding", setup_personal_account_path %>
-    <% end %>
-  <% end %>
-
-  <%= navbar_right do %>
-    <%= navbar_button(nil, "#", { icon: "fa fa-bell" }) %>
-    <% if current_user.personal_account? && account_selected? %>
-      <%= navbar_separator %>
-      <%= render(Navbar::SelectAccount::Component.new(current_user:, current_account:)) %>
-      <%= navbar_separator %>
-    <% end %>
-    <%= render(Navbar::DarkModeSwitcher::Component.new) %>
-    <%= navbar_button(nil, "#", { icon: "fa fa-gear" }) %>
-    <%= navbar_button(nil, destroy_user_session_path, { method: :delete, icon: "fa fa-right-from-bracket" }) %>
-  <% end %>
-<% end %>
+<%=
+  if user_signed_in?
+    render 'navbars/protected'
+  else
+    render 'navbars/public'
+  end
+%>

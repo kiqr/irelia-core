@@ -1,18 +1,21 @@
 <% title "Sign in to your account" %>
-<% content_for :header do %>
-  <h1 class="font-bold font-headings text-neutral-600 dark:text-neutral-100 text-2xl">Sign in to <strong class="text-primary-600">Irelia</strong></h1>
-  <p class="text-neutral-400 dark:text-neutral-200">Sign in with your email address and password or select any of the other available options below.</p>
-<% end %>
 
-<main class="flex flex-col gap-4 w-full max-w-xl">
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <%= f.input :email, placeholder: "Enter your email", required: true, autofocus: true, input_html: { autocomplete: "email" } %>
-    <%= f.input :password, placeholder: "Enter your password", required: true, input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean, wrapper: :inline_checkbox if devise_mapping.rememberable? %>
+<%= fullscreen do %>
+  <%= fullscreen_form_container(
+    title: "Sign in to your <strong class=\"text-primary-600\">Irelia</strong> account".html_safe,
+    description: "Enter with your email address and password or select any of the other available options below."
+  ) do %>
+    <main class="flex flex-col gap-4 w-full max-w-xl">
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= f.input :email, placeholder: "Enter your email", required: true, autofocus: true, input_html: { autocomplete: "email" } %>
+        <%= f.input :password, placeholder: "Enter your password", required: true, input_html: { autocomplete: "current-password" } %>
+        <%= f.input :remember_me, as: :boolean, wrapper: :inline_checkbox if devise_mapping.rememberable? %>
 
-    <div class="flex justify-between items-center">
-      <%= f.button :submit, "Sign in" %>
-      <p class="dark:text-neutral-200">Don't have an account? <%= link_to "Sign up!", new_user_registration_path, class: "font-bold text-primary-600 transition" %></p>
-    </div>
+        <div class="flex justify-between items-center">
+          <%= f.button :submit, "Sign in" %>
+          <p class="dark:text-neutral-200">Don't have an account? <%= link_to "Sign up!", new_user_registration_path, class: "font-bold text-primary-600 transition" %></p>
+        </div>
+      <% end %>
+    </main>
   <% end %>
-</main>
+<% end %>

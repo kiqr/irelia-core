@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "view_component"
+
 module Irelia
   class Engine < ::Rails::Engine
     config.autoload_paths << Irelia::Engine.root.join("lib")

@@ -1,0 +1,15 @@
+<%= navbar do %>
+  <%= render "shared/navbar_logo" %>
+
+  <%= navbar_separator %>
+
+  <%= navbar_items do %>
+    <%= navigation_item("Home", root_path, { icon: "fa fa-home" }) %>
+  <% end %>
+
+  <%= navbar_right do %>
+    <%= navbar_button("Sign in", new_user_session_path) %>
+    <%= navbar_button("Create account", new_user_registration_path) %>
+    <%= render(Navbar::DarkModeSwitcher::Component.new) %>
+  <% end %>
+<% end %>
