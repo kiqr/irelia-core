@@ -1,4 +1,4 @@
-<%= simple_form_for @account, url: @account.personal_account ? setup_personal_account_path : account_path, method: :post do |f| %>
+<%= simple_form_for @account, url: form_url_for_account(@account), method: form_method_for_account(@account) do |f| %>
   <%= f.input :name, placeholder: @account.personal_account ? "Your full name" : "Team / organization name" %>
-  <%= f.button :submit, "Create account" %>
+  <%= f.button :submit, (@account.persisted? ? "Update profile" : "Create account") %>
 <% end %>

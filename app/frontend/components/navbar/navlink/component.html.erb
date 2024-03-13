@@ -1,6 +1,6 @@
 <%= link_to target, class: "flex items-center px-2 text-sm h-[60px] border-y-2 border-transparent #{active ? "font-bold text-primary-700" : "hover:text-black dark:hover:text-white" } #{custom_class}" do %>
   <% if icon.present? %>
-    <i class="<%= icon %> w-4 h-4 <%= "mr-3" if text %>"></i>
+    <i class="<%= icon %> w-3 h-3 <%= "mr-3" if text %>"></i>
   <% end %>
   <% if text.present? %>
     <span><%= text %></span>

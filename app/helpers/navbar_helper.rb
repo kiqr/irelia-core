@@ -31,4 +31,8 @@ module NavbarHelper
   def navbar_separator
     render(Navbar::Separator::Component.new)
   end
+
+  def navbar_account_switcher
+    render(Navbar::SelectAccount::Component.new(current_user: User.find(current_user.id), current_account:))
+  end
 end
