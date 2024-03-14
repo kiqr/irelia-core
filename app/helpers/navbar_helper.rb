@@ -13,11 +13,11 @@ module NavbarHelper
     render(Navbar::RightSection::Component.new, &)
   end
 
-  def navigation_item(text, target, options = {})
+  def navbar_link(text, target, options = {})
     active = options[:active] || request.path == target
     icon = options[:icon] || nil
 
-    render(Navbar::Navlink::Component.new(target:, text:, active:, icon:))
+    render(Navbar::Link::Component.new(target:, text:, active:, icon:))
   end
 
   def navbar_button(text, target, options = {})

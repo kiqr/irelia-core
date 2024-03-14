@@ -4,18 +4,16 @@
   <%= navbar_separator %>
 
   <% if account_selected? %>
-    <%= navbar_items do %>
-      <%= navigation_item "Dashboard", dashboard_path %>
-    <% end %>
+    <%= navbar_link "Dashboard", dashboard_path %>
   <% end %>
 
   <%= navbar_right do %>
     <% if account_selected? %>
-      <%= navbar_button(nil, "#", { icon: "fa fa-bell" }) %>
+      <%= navbar_link(nil, "#", { icon: "fa fa-bell" }) %>
       <%= navbar_separator %>
       <%= navbar_account_switcher %>
       <%= navbar_separator %>
-      <%= navigation_item(nil, edit_account_path, { icon: "fa fa-gear" }) %>
+      <%= navbar_link(nil, edit_account_path, { icon: "fa fa-gear" }) %>
     <% end %>
     <%= render(Navbar::DarkModeSwitcher::Component.new) %>
     <%= navbar_button(nil, destroy_user_session_path, { method: :delete, icon: "fa fa-right-from-bracket" }) %>
