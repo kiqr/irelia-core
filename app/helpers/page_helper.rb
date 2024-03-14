@@ -12,4 +12,8 @@ module PageHelper
   def breadcrumbs
     render(Page::Breadcrumbs::Component.new(breadcrumbs: breadcrumb_trail))
   end
+
+  def flash_messages
+    render(FlashMessages::Component.new(flash))
+  end
 end

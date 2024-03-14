@@ -1,0 +1,11 @@
+<% unless flash.empty? %>
+  <div class="fixed top-[60px] w-full text-sm flex justify-center items-center p-4 border-b bg-white dark:bg-dark-900 border-neutral-200 dark:border-dark-700">
+    <% flash.each do |type, message| %>
+      <% if type == "notice" %>
+        <i class="fa fa-square-check text-xl mr-3 text-sm text-primary-600"></i> <%= message %>
+      <% elsif type == "alert" %>
+        <i class="fa fa-circle-exclamation text-xl mr-3 text-rose-500"></i> <%= message %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
