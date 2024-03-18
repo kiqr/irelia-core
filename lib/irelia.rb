@@ -15,6 +15,14 @@ module Irelia
 
   module Controllers
     autoload :Application, "irelia/controllers/application"
+    autoload :Public, "irelia/controllers/public"
+    autoload :Helpers, "irelia/controllers/helpers"
+  end
+
+  module Helpers
+    autoload :FullscreenHelper, "irelia/helpers/fullscreen_helper"
+    autoload :NavbarHelper, "irelia/helpers/navbar_helper"
+    autoload :PageHelper, "irelia/helpers/page_helper"
   end
 
   # ==> Application name

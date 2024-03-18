@@ -4,6 +4,7 @@ module Irelia
   module Controllers
     module Application
       extend ActiveSupport::Concern
+      include Irelia::Controllers::Helpers
 
       included do
         before_action :authenticate_user!
