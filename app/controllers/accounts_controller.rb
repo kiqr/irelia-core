@@ -2,7 +2,8 @@
 
 class AccountsController < Teamable::AccountsController
   def edit
-    breadcrumb "Settings", edit_account_path
+    breadcrumb "Settings", "#"
+    breadcrumb "Edit account profile", edit_account_path
     super
   end
 end
