@@ -1,7 +1,7 @@
 <%=
   if user_signed_in?
-    render 'navbars/protected'
+    render 'navigations/navbar_protected'
   else
-    render 'navbars/public'
+    render 'navigations/navbar_public'
   end
 %>
